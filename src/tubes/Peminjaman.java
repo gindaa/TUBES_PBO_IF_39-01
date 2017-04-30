@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package tubes;
-
+import java.util.*;
 /**
 *
 * @author pejuangTubes
@@ -20,20 +20,19 @@ public class Peminjaman {
         public int batasBulan;
         public int batasTahun;
         public int selisih;
-        public Denda Denda[];
+        public Denda Denda;
+        public ArrayList Buku = new ArrayList<Buku>();
+        public Member Member;
 
-    public Peminjaman(int bulanPinjam, int tanggalPinjam, int tahunpinjam, int bulanKembali, int tanggalKembali, int tahunKembali, int batasTanggal, int batasBulan, int batasTahun, int selisih, Denda[] Denda) {
+    public Peminjaman(int bulanPinjam, int tanggalPinjam, int tahunpinjam, int batasTanggal, int batasBulan, int batasTahun, Member Member, ArrayList Buku) {
         this.bulanPinjam = bulanPinjam;
         this.tanggalPinjam = tanggalPinjam;
         this.tahunpinjam = tahunpinjam;
-        this.bulanKembali = bulanKembali;
-        this.tanggalKembali = tanggalKembali;
-        this.tahunKembali = tahunKembali;
         this.batasTanggal = batasTanggal;
         this.batasBulan = batasBulan;
         this.batasTahun = batasTahun;
-        this.selisih = selisih;
-        this.Denda = Denda;
+        this.Member = Member;
+        this.Buku = Buku;
     }
     
     public void setBulanPinjam(int bulanPinjam) {
@@ -60,7 +59,7 @@ public class Peminjaman {
         this.tahunKembali = tahunKembali;
     }
 
-    public void setDenda(Denda[] Denda) {
+    public void setDenda(Denda Denda) {
         this.Denda = Denda;
     }
 
@@ -88,7 +87,7 @@ public class Peminjaman {
         return tahunKembali;
     }
 
-    public Denda[] getDenda() {
+    public Denda getDenda() {
         return Denda;
     }
 

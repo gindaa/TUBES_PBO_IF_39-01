@@ -15,7 +15,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Buku b1 = new Buku("001", "Bahasa Indonesia", 20, "Rumah", "Saya", "TextBook", "Formal");
+        Petugas p1 = new Petugas("Dio", 192, 857, "Vandani", "P001");
+        
+        
+        System.out.println("Nama Buku : "+b1.getNamaBuku());
+        System.out.println("Jumlah halaman : "+b1.getJumlahHalaman());
+        System.out.println("Penerbit : "+b1.getPenerbit());
     }
-    
 }

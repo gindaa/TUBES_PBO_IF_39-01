@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tubes;
+import java.util.*;
 
 /**
  *
@@ -11,39 +12,21 @@ package tubes;
  */
 public class Petugas extends People{
     
-    public String idPetugas;
-    public Buku Buku[];
-    public Peminjaman Peminjaman[];
+    private String idPetugas;
+    private ArrayList Peminjaman = new ArrayList<>();
     
     
-    public Petugas(String name, int noKtp, int noHp, String Alamat) {
-        name = name;
-        noKtp = noKtp;
-        noHp = noHp;
-        Alamat = Alamat;
+    public Petugas(String name, int noKtp, int noHp, String Alamat, String idPetugas) {
+        super(name, noKtp, noHp, Alamat);
+        this.idPetugas = idPetugas;
     }
 
     public String getIdPetugas() {
         return idPetugas;
     }
-
-    public Buku[] getBuku() {
-        return Buku;
-    }
-
-    public void setIdPetugas(String idPetugas) {
-        this.idPetugas = idPetugas;
-    }
-
-    public void setBuku(Buku[] Buku) {
-        this.Buku = Buku;
-    }
-
-    public Peminjaman[] getPeminjaman() {
-        return Peminjaman;
-    }
-
-    public void setPeminjaman(Peminjaman[] Peminjaman) {
-        this.Peminjaman = Peminjaman;
+    
+    public void tambahPeminjaman(int bulanPinjam, int tanggalPinjam, int tahunpinjam, int batasTanggal, int batasBulan, int batasTahun, Member Member, ArrayList<Buku> Buku) {
+        Peminjaman p = new Peminjaman(bulanPinjam, tanggalPinjam, tahunpinjam, batasTanggal, batasBulan, batasTahun, Member, Buku);
+        Peminjaman.add(p);
     }
 }

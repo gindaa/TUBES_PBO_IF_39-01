@@ -16,28 +16,43 @@ public abstract class People {
     private int noHp;
     private String Alamat;
 
-    public void setName(String name){
+    public People(String name, int noKtp, int noHp, String Alamat) {
         this.name = name;
-    }
-    public String getName(){
-        return name;
-    }
-    public void setAlamat(String Alamat){
+        this.noKtp = noKtp;
+        this.noHp = noHp;
         this.Alamat = Alamat;
     }
-    public String getAlamat(){
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setAlamat(String Alamat) {
+        this.Alamat = Alamat;
+    }
+    
+    public String getAlamat() {
         return Alamat;
     }
-    public void setHp(int noHp){
+    
+    public void setHp(int noHp) {
         this.noHp = noHp;
     }
-    public int getHp(){
+    
+    public int getHp() {
         return noHp;
     }
-    public void setKtp(int noKtp){
+    
+    public void setKtp(int noKtp) {
         this.noKtp = noKtp;
     }
-    public int getKtp(){
+    
+    public int getKtp() {
         return noHp;
     }
+    
 }

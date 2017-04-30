@@ -19,8 +19,7 @@ public class Buku {
     private String genre;
     private Peminjaman Peminjaman[];
     
-    public Buku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre)
-    {
+    public Buku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre) {
         this.idBuku = idBuku;
         this.namaBuku = namaBuku;
         this.jumlahHalaman = jumlahHalaman;
@@ -49,30 +48,39 @@ public class Buku {
     public void setIdBuku(String idBuku){
         this.idBuku = idBuku;
     }
+    
     public String getIdBuku(){
         return idBuku;
     }
+    
     public void setNamaBuku(String namaBuku){
         this.namaBuku = namaBuku;
     }
+    
     public String getNamaBuku(){
         return namaBuku;
     }
+    
     public void setJumlahHalaman(int jumlahHalaman){
         this.jumlahHalaman = jumlahHalaman;
     }
+    
     public int getJumlahHalaman(){
         return jumlahHalaman;
     }
+    
     public void setPenerbit(String penerbit){
         this.penerbit = penerbit;
     }
+    
     public String getPenerbit(){
         return penerbit;
     }
+    
     public void setPengarang(String pengarang){
         this.pengarang = pengarang;
     }
+    
     public String getPengarang(){
         return pengarang;
     }

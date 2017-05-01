@@ -11,48 +11,24 @@ package tubes;
  */
 public abstract class People {
     
-    private String name;
-    private int noKtp;
-    private int noHp;
-    private String Alamat;
+    public String name;
+    public int noKtp;
+    public int noHp;
+    public String alamat;
 
-    public People(String name, int noKtp, int noHp, String Alamat) {
+    public People(String name, int noKtp, int noHp, String alamat) {
         this.name = name;
         this.noKtp = noKtp;
         this.noHp = noHp;
-        this.Alamat = Alamat;
+        this.alamat = alamat;
     }
     
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setAlamat(String Alamat) {
-        this.Alamat = Alamat;
-    }
-    
-    public String getAlamat() {
-        return Alamat;
-    }
-    
-    public void setHp(int noHp) {
-        this.noHp = noHp;
-    }
-    
-    public int getHp() {
-        return noHp;
-    }
-    
-    public void setKtp(int noKtp) {
-        this.noKtp = noKtp;
-    }
-    
-    public int getKtp() {
-        return noHp;
-    }
-    
+    public abstract void setName(String name);
+    public abstract String getName();
+    public abstract void setAlamat(String Alamat);
+    public abstract String getAlamat();
+    public abstract void setHp(int noHp);
+    public abstract int getHp();
+    public abstract void setKtp(int noKtp);
+    public abstract int getKtp();
 }

@@ -13,7 +13,8 @@ import java.util.*;
 public class Petugas extends People{
     
     private String idPetugas;
-    private ArrayList Peminjaman = new ArrayList<>();
+    private ArrayList daftarPeminjaman = new ArrayList<Peminjaman>();
+    private ArrayList daftarBuku = new ArrayList<Buku>();
     
     
     public Petugas(String name, int noKtp, int noHp, String Alamat, String idPetugas) {
@@ -25,8 +26,61 @@ public class Petugas extends People{
         return idPetugas;
     }
     
-    public void tambahPeminjaman(int bulanPinjam, int tanggalPinjam, int tahunpinjam, int batasTanggal, int batasBulan, int batasTahun, Member Member, ArrayList<Buku> Buku) {
-        Peminjaman p = new Peminjaman(bulanPinjam, tanggalPinjam, tahunpinjam, batasTanggal, batasBulan, batasTahun, Member, Buku);
-        Peminjaman.add(p);
+    public void tambahBuku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre, int stock) {
+        Buku b = new Buku(idBuku, namaBuku, jumlahHalaman, penerbit, pengarang, kategori, genre, stock);
+        daftarBuku.add(b);
+    }
+    
+    public ArrayList lihatBuku() {
+        return daftarBuku;
+    }
+    
+    public void tambahPeminjaman(Member mb, Buku bk, int jumlahPinjam) {
+        //Peminjaman p = new Peminjaman(mb, bk, jumlahPinjam);
+        //daftarPeminjaman.add(p);
+    }
+    
+    public ArrayList lihatPeminjaman() {
+        return daftarPeminjaman;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    @Override
+    public String getAlamat() {
+        return alamat;
+    }
+
+    @Override
+    public void setHp(int noHp) {
+        this.noHp = noHp;
+    }
+
+    @Override
+    public int getHp() {
+        return noHp;
+    }
+
+    @Override
+    public void setKtp(int noKtp) {
+        this.noKtp = noKtp;
+    }
+
+    @Override
+    public int getKtp() {
+        return noKtp;
     }
 }

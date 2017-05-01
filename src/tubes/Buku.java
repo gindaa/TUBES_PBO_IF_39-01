@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package tubes;
-
+import java.util.*;
 /**
  *
  * @author pejuangTubes
@@ -17,9 +17,10 @@ public class Buku {
     private String pengarang;
     private String kategori;
     private String genre;
-    private Peminjaman Peminjaman[];
+    private int stock;
+    private ArrayList daftarPeminjaman = new ArrayList<Peminjaman>();
     
-    public Buku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre) {
+    public Buku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre, int stock) {
         this.idBuku = idBuku;
         this.namaBuku = namaBuku;
         this.jumlahHalaman = jumlahHalaman;
@@ -27,8 +28,13 @@ public class Buku {
         this.pengarang = pengarang;
         this.kategori = kategori;
         this.genre = genre;
+        this.stock = stock;
     }
-
+    
+    public void pinjamBuku(int n, String idMember) {
+        
+    }
+    
     public String getKategori() {
         return kategori;
     }
@@ -83,13 +89,5 @@ public class Buku {
     
     public String getPengarang(){
         return pengarang;
-    }
-
-    public Peminjaman[] getPeminjaman() {
-        return Peminjaman;
-    }
-
-    public void setPeminjaman(Peminjaman[] Peminjaman) {
-        this.Peminjaman = Peminjaman;
     }
 }

@@ -9,26 +9,21 @@ import java.util.*;
  *
  * @author pejuangTubes
  */
-public class Member {
-    String idMember;
-    String identitas;
-    int noIdentitas;
-    int mStatus;
-    ArrayList Peminjaman = new ArrayList<Peminjaman>();
+public class Member extends People {
+    private String idMember;
+    private int noIdentitas;
+    private int mStatus;
+    //ArrayList Peminjaman = new ArrayList<Peminjaman>();
 
-    public Member(String idMember, String identitas, int noIdentitas, int mStatus) {
+    public Member(String name, int noKtp, int noHp, String Alamat, String idMember, int noIdentitas, int mStatus) {
+        super(name, noKtp, noHp, Alamat);
         this.idMember = idMember;
-        this.identitas = identitas;
         this.noIdentitas = noIdentitas;
         this.mStatus = mStatus;
     }
     
     public void setIdMember (String idMember){
         this.idMember = idMember;
-    }
-    
-    public void setIdentitas (String identitas){
-        this.identitas = identitas;
     }
     
     public void setNoIdentitas(int noIdentitas){
@@ -42,11 +37,7 @@ public class Member {
     public String getIdMember(){
         return idMember;
     }
-    
-    public String getIdentitas(){
-        return identitas;
-    }
-    
+   
     public int getNoIdentitas(){
         return noIdentitas;
     }
@@ -54,9 +45,44 @@ public class Member {
     public int getmStatus() {
         return mStatus;
     }
-
-    public void setPeminjaman(ArrayList Peminjaman) {
-        this.Peminjaman = Peminjaman;
-    }
     
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    @Override
+    public String getAlamat() {
+        return alamat;
+    }
+
+    @Override
+    public void setHp(int noHp) {
+        this.noHp = noHp;
+    }
+
+    @Override
+    public int getHp() {
+        return noHp;
+    }
+
+    @Override
+    public void setKtp(int noKtp) {
+        this.noKtp = noKtp;
+    }
+
+    @Override
+    public int getKtp() {
+        return noKtp;
+    }
 }

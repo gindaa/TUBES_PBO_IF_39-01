@@ -12,11 +12,11 @@ package tubes;
 public abstract class People {
     
     public String name;
-    public int noKtp;
-    public int noHp;
+    public String noKtp;
+    public String noHp;
     public String alamat;
 
-    public People(String name, int noKtp, int noHp, String alamat) {
+    public People(String name, String noKtp, String noHp, String alamat) {
         this.name = name;
         this.noKtp = noKtp;
         this.noHp = noHp;
@@ -27,8 +27,8 @@ public abstract class People {
     public abstract String getName();
     public abstract void setAlamat(String Alamat);
     public abstract String getAlamat();
-    public abstract void setHp(int noHp);
-    public abstract int getHp();
-    public abstract void setKtp(int noKtp);
-    public abstract int getKtp();
+    public abstract void setHp(String noHp);
+    public abstract String getHp();
+    public abstract void setKtp(String noKtp);
+    public abstract String getKtp();
 }

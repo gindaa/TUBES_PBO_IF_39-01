@@ -13,34 +13,69 @@ import java.util.concurrent.TimeUnit;
 */
 public class Peminjaman implements Denda {
         private long selisih;
+        private String namaMember;
         private double denda;
         private int jumlahPinjam;
         private String namaBuku;
+        private String idMember;
         private int bayarDenda;
-        String tglAwal = "01-01-2001";
-        String tglAkhir = "20-01-2001";
+        String tglAwal;
+        String tglAkhir;
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     
-    /* public Peminjaman(Member mb, Buku bk, int jumlahPinjam) {
-        this.namaBuku = bk.getNamaBuku();
+    public Peminjaman(Member member, String namaBuku, String tglAwal, String tglAkhir, int jumlahPinjam) {
+        this.namaBuku = namaBuku;
+        this.idMember = member.getIdMember();
+        this.namaMember = member.getName();
+        this.tglAkhir = tglAkhir;
+        this.tglAwal = tglAwal;
         this.jumlahPinjam = jumlahPinjam;
-    } **/
-
+    }
+    
+    public String getNamaBuku() {
+        return namaBuku;
+    }
+    
+    public String getIdMember() {
+        return idMember;
+    }
+    
     public long getSelisih() {
         return selisih;
     }
 
+    public String getNamaMember() {
+        return namaMember;
+    }
+    
+    public String getTglAwal() {
+        return tglAwal;
+    }
+    
+    public String getTglAkhir() {
+        return tglAkhir;
+    }
+    
+    public int getJumlahPinjam() {
+        return jumlahPinjam;
+    }
+    
     public void setSelisih() throws ParseException {
         Date tglA = sdf.parse(tglAwal);
         Date tglB = sdf.parse(tglAkhir);
         selisih = TimeUnit.MILLISECONDS.toDays(tglB.getTime() - tglA.getTime());
-        //System.out.println(Long.valueOf(selisih) +" hari");
     }
     
-    public void setTanggal(String tglAwal) throws ParseException {
+    public void setTanggalAwal(String tglAwal) {
         this.tglAwal = tglAwal;
-        //Peminjaman p2 = new Peminjaman();
-        //p2.setSelisih();
+    }
+    
+    public void setTanggalAkhir(String tglAkhir) {
+        this.tglAkhir = tglAkhir;
+    }
+    
+    public void setNamaBuku(String namaBuku) {
+        this.namaBuku = namaBuku;
     }
     
     @Override

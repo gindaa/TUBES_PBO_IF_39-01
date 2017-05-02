@@ -13,11 +13,11 @@ import java.util.*;
 public class Petugas extends People{
     
     private String idPetugas;
-    private ArrayList daftarPeminjaman = new ArrayList<Peminjaman>();
-    private ArrayList daftarBuku = new ArrayList<Buku>();
+    private Buku buku;
+    private int jumlahBuku;
+    private ListBuku lb = new ListBuku();
     
-    
-    public Petugas(String name, int noKtp, int noHp, String Alamat, String idPetugas) {
+    public Petugas(String name, String noKtp, String noHp, String Alamat, String idPetugas) {
         super(name, noKtp, noHp, Alamat);
         this.idPetugas = idPetugas;
     }
@@ -27,23 +27,27 @@ public class Petugas extends People{
     }
     
     public void tambahBuku(String idBuku , String namaBuku , int jumlahHalaman , String penerbit , String pengarang, String kategori, String genre, int stock) {
-        Buku b = new Buku(idBuku, namaBuku, jumlahHalaman, penerbit, pengarang, kategori, genre, stock);
-        daftarBuku.add(b);
+        ArrayList<Buku> temp = lb.getDaftarBuku();
+        if (temp != null) {
+            for (Iterator<Buku> it = temp.iterator(); it.hasNext();) {
+                Buku buku = it.next();
+                if (idBuku == buku.getIdBuku() && namaBuku == buku.getNamaBuku() && jumlahHalaman == buku.getJumlahHalaman() && penerbit == buku.getPenerbit() && pengarang == buku.getPengarang() && kategori == buku.getKategori() && genre == buku.getGenre() && stock == buku.getStock()) {
+                    buku.setStock(stock+1);
+                } else {
+                    Buku buku1 = new Buku(idBuku, namaBuku, jumlahHalaman, penerbit, pengarang, kategori, genre, stock);
+                    lb.setDaftarBuku(buku1);
+                }
+            }
+        } else {
+            Buku buku = new Buku(idBuku, namaBuku, jumlahHalaman, penerbit, pengarang, kategori, genre, stock);
+            lb.setDaftarBuku(buku);
+        }
     }
     
-    public ArrayList lihatBuku() {
-        return daftarBuku;
+    public void lihatBuku() {
+        lb.lihatDaftarBuku();
     }
     
-    public void tambahPeminjaman(Member mb, Buku bk, int jumlahPinjam) {
-        //Peminjaman p = new Peminjaman(mb, bk, jumlahPinjam);
-        //daftarPeminjaman.add(p);
-    }
-    
-    public ArrayList lihatPeminjaman() {
-        return daftarPeminjaman;
-    }
-
     @Override
     public void setName(String name) {
         this.name = name;
@@ -65,22 +69,22 @@ public class Petugas extends People{
     }
 
     @Override
-    public void setHp(int noHp) {
+    public void setHp(String noHp) {
         this.noHp = noHp;
     }
 
     @Override
-    public int getHp() {
+    public String getHp() {
         return noHp;
     }
 
     @Override
-    public void setKtp(int noKtp) {
+    public void setKtp(String noKtp) {
         this.noKtp = noKtp;
     }
 
     @Override
-    public int getKtp() {
+    public String getKtp() {
         return noKtp;
     }
 }

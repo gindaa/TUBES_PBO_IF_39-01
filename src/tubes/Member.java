@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package tubes;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 /**
  *
@@ -11,13 +13,15 @@ import java.util.*;
  */
 public class Member extends People {
     private String idMember;
-    private String mStatus;
     private String namaBuku;
+    private String mStatus;
+    private int jumlahPinjam;
     private Buku buku;
     private String bk;
-    private ListBuku listBuku;
+    private ListBuku listBuku = new ListBuku();
     private Peminjaman peminjaman;
     private ListPeminjaman lp = new ListPeminjaman();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     public Member(String name, String noKtp, String noHp, String Alamat, String idMember, String mStatus) {
         super(name, noKtp, noHp, Alamat);
@@ -25,23 +29,42 @@ public class Member extends People {
         this.mStatus = mStatus;
     }
 
-    public void pinjamBuku(Buku buku, int n) {
+    public void pinjamBuku(String namaBuku, int n) throws ParseException {
+        String tempJudul = null;
+        String tglAwal = null;
+        String tglAkhir = null;
         ArrayList<Buku> temp = listBuku.getDaftarBuku();
         if (temp != null) {
             for (Iterator<Buku> it = temp.iterator(); it.hasNext();) {
                 Buku buku1 = it.next();
-                if (buku1.getIdBuku().equals(buku.getIdBuku()) && buku1.getNamaBuku().equals(buku.getNamaBuku()) && buku1.getJumlahHalaman() == buku.getJumlahHalaman() && buku1.getPenerbit().equals(buku.getPenerbit()) && buku1.getPengarang().equals(buku.getPengarang()) && buku1.getKategori().equals(buku.getKategori()) && buku1.getGenre().equals(buku.getGenre()) && buku1.getStock() == buku.getStock()) {
-                    
+                if (buku1.getNamaBuku().equals(namaBuku)) {
                     buku1.setStock(buku1.getStock()-1);
+                    tempJudul = buku1.getNamaBuku();
                 } else {
-                    
+                    System.out.println("Buku tidak ditemukan");
                 }
             }
+            if (tempJudul != null) {
+                Scanner sc = new Scanner(System.in);
+                tglAwal = sc.next();
+                Date tempTgl = sdf.parse(tglAwal);
+                Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.DATE, 7);
+                Date temp7HariLagi = cal.getTime();
+                tglAkhir = sdf.format(temp7HariLagi);
+                Peminjaman peminjaman1 = new Peminjaman(this.idMember, this.name, tempJudul, tglAwal, tglAkhir, jumlahPinjam);
+                lp.setDaftarPeminjaman(peminjaman1);
+            }
         } else {
-            
+            Peminjaman peminjaman = new Peminjaman(this.idMember, this.name, namaBuku, tglAwal, tglAkhir, jumlahPinjam);
+            lp.setDaftarPeminjaman(peminjaman);
         }
     }
 
+    public void lihatPeminjaman() {
+        lp.lihatDaftarPeminjaman();
+    }
+    
     public void setIdMember(String idMember){
         this.idMember = idMember;
     }

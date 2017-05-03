@@ -23,6 +23,9 @@ public class Main {
         p1.tambahBuku("B001", "Bahasa Indonesia", 100, "Erlangga", "Kemendikbud", "Text Book", "Education", 1);
         p1.tambahBuku("B001", "Bahasa Indonesia", 100, "Erlangga", "Kemendikbud", "Text Book", "Education", 1);
         p1.lihatBuku();
+        Member m1 = new Member("Ferdio", "1301142234", "08564400191", "Telkom", "M001", "Active");
+        m1.pinjamBuku("Matematika", 1);
+        m1.lihatPeminjaman();
         //p1.lihatBuku();
         //System.out.println(m1.getBuku("Bahasa Indonesia"));
         //Peminjaman e1 = new Peminjaman();

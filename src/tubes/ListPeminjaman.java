@@ -21,7 +21,7 @@ public class ListPeminjaman {
         }
     }
     
-    public void lihatDaftarBuku() {
+    public void lihatDaftarPeminjaman() {
         for (Iterator it = daftarPeminjaman.iterator(); it.hasNext();) {
             Peminjaman p = (Peminjaman) it.next();
             System.out.println("Nama Peminjam      : "+p.getNamaMember());

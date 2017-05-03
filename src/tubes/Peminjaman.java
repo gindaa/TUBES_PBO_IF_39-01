@@ -23,10 +23,10 @@ public class Peminjaman implements Denda {
         String tglAkhir;
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     
-    public Peminjaman(Member member, String namaBuku, String tglAwal, String tglAkhir, int jumlahPinjam) {
+    public Peminjaman(String idMember, String namaMember, String namaBuku, String tglAwal, String tglAkhir, int jumlahPinjam) {
         this.namaBuku = namaBuku;
-        this.idMember = member.getIdMember();
-        this.namaMember = member.getName();
+        this.idMember = idMember;
+        this.namaMember = namaMember;
         this.tglAkhir = tglAkhir;
         this.tglAwal = tglAwal;
         this.jumlahPinjam = jumlahPinjam;

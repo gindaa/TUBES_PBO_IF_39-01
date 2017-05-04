@@ -19,7 +19,6 @@ public class CLogin implements ActionListener {
 
     GLogin gl = new GLogin();
     Aplikasi ap = new Aplikasi();
-    Petugas pt = new Petugas();
 
     public CLogin() {
         gl.setVisible(true);

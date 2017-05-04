@@ -10,5 +10,8 @@ package Controller;
  * @author GIN
  */
 public class CHome {
+
+    public CHome() {
+    }
     
 }

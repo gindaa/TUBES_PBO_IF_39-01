@@ -28,7 +28,7 @@ public class Database {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tubes", dbuser, dbpasswd);
             st = con.createStatement();
-        } catch (Exception e) {
+        } catch (Exception e) {x
             System.out.println(e.getMessage());
         }
     }

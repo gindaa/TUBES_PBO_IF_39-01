@@ -5,10 +5,7 @@
  */
 package Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
@@ -17,7 +14,7 @@ import java.sql.Statement;
 public class Database {
 
     private String dbuser = "root";
-    private String dbpasswd = "";
+    private String dbpasswd = "791441";
     private Statement st = null;
     private Connection con = null;
     private ResultSet rs = null;
@@ -29,7 +26,7 @@ public class Database {
             System.out.println(e.getMessage());
         }
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/toko", dbuser, dbpasswd);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tubes", dbuser, dbpasswd);
             st = con.createStatement();
         } catch (Exception e) {
             System.out.println(e.getMessage());
